@@ -3,5 +3,5 @@ My attempt to recreate one of my favorite 1980s Arcade games using MonoGame and 
 
 The goal is for the game to look and play as close to the original as possible:
 
-![DefenderGameplay.png](https://archive.org/serve/arcade_defender/defender_screenshot.png)
+![DefenderGameplay.png](https://www.youtube.com/watch?v=BqP3YHkoZ9E)
 

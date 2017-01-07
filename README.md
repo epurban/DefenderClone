@@ -1,7 +1,3 @@
 # DefenderClone
-My attempt to recreate one of my favorite 1980s Arcade games using MonoGame and C#. I do not own this game and this code is for demonstration of coding abilities ONLY. Defender was originally programmed by Eugene Jarvis in the 1980s.
-
-The goal is for the game to look and play as close to the original as possible:
-
-[![DefenderGameplay](https://archive.org/serve/arcade_defender/defender_screenshot.png)](https://www.youtube.com/watch?v=BqP3YHkoZ9E "Defender Gameplay")
+The original purpose of this project was to recreate the Original Defender arcade game for practice with C# and monogame. However, that has since changed and now this project is an unnamed top down space game I am working on using Monogame and Nez Framework, by Prime31.
 

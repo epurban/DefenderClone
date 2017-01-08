@@ -571,14 +571,14 @@
     <Compile Include="ECS\Components\Renderables\PolygonLight\PolySpotLight.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework">
-      <HintPath>MonoGamePCL\MonoGame.Framework.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Content\NezDefaultBMFont.xnb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Graphics\SVG\Shapes\Paths\SvgPathBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>MonoGamePCL\MonoGame.Framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

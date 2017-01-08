@@ -29,12 +29,15 @@ namespace Defender
 
 			base.Initialize();
 
+			Physics.spatialHashCellSize = 200;
+
 			var spaceScene = new Scene();
 
 			// renderers for background, main scene, and UI
 			spaceScene.addRenderer(new RenderLayerRenderer(-1, MAIN_RENDER_LAYER));
 			spaceScene.addRenderer(new ScreenSpaceRenderer(-10, BACKGROUND_RENDER_LAYER));
 
+			// SFX
 
 			// entities
 			var myPlayer = spaceScene.createEntity("myPlayer");
@@ -61,8 +64,11 @@ namespace Defender
 			var sprite = new Sprite(_textureShip);
 			sprite.renderLayer = MAIN_RENDER_LAYER;
 
+			SoundEffect collisionSound;
+			collisionSound = spaceScene.content.Load<SoundEffect>("def_star");
+
 			myPlayer.addComponent( sprite );
-			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54, introGalaxy.decayVal()));
+			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54, introGalaxy.decayVal(), collisionSound));
 			myPlayer.addComponent(new MovementInput());
 			myPlayer.addComponent<CircleCollider>();
 
@@ -74,14 +80,17 @@ namespace Defender
 
 				var tempPlanet = spaceScene.createEntity("planet" + i, new Vector2(x, y));
 				                                                     
-				tempPlanet.addComponent(new Sprite(_textureEarthlike));
+				tempPlanet.addComponent(new Sprite(_textureVolcanic));
+				tempPlanet.addComponent<CircleCollider>();
 
 				currentSystemPlanets.Add(tempPlanet);
 
 			}
 
 
-			spaceScene.camera.entity.addComponent(new FollowCamera(myPlayer));
+			var followCamera = new FollowCamera(myPlayer);
+			followCamera.mapSize = new Vector2(5000, 5000);
+			spaceScene.camera.entity.addComponent(followCamera);
 
 
 			var backgroundStars1 = new SpaceBackgroundSprite(_textureStars100, new Vector2(5, 5), 2.5f);
@@ -98,14 +107,11 @@ namespace Defender
 
 
 			// transform
-			myPlayer.transform.position = new Vector2(0, 0);
-			myPlayer.transform.scale = new Vector2(0.15f);
+			myPlayer.transform.position = new Vector2(500, 0);
+			myPlayer.transform.scale = new Vector2(0.25f);
 
 			Core.scene = spaceScene;
 
-			//planetTextures = new List<Texture2D>(2);
-
-			//Camera camera = new Camera(GraphicsDevice.Viewport);
 		}
 
 	}

@@ -31,18 +31,6 @@
 /processorParam:Quality=Best
 /build:def_swar.wav
 
-#begin stallion.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:stallion.png
-
 #begin shipsheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -132,4 +120,22 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:volcanic.png
+
+#begin stallion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stallion.png
+
+#begin collision.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:collision.wav
 

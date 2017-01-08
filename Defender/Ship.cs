@@ -2,6 +2,7 @@
 using Nez;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Defender
 {
@@ -19,7 +20,9 @@ namespace Defender
 		public float elapsedTime;
 		public float timer100;
 
-		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay)
+		SoundEffect collide;
+
+		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay, SoundEffect collideEffect)
 		{
 			maxSpeed = maxS;
 			acceleration = Accel;
@@ -30,6 +33,7 @@ namespace Defender
 			width = w;
 			height = h;
 			decayVal = decay;
+			collide = collideEffect;
 		}
 
 		public float width
@@ -163,6 +167,24 @@ namespace Defender
 				//}
 
 				timer100 = elapsedTime + 0.100f;
+			}
+
+			CollisionResult collisionResult;
+
+			// do a check to see if entity.getComponent<Collider> (the first Collider on the Entity) collides with any other Colliders in the Scene
+			// Note that if you have multiple Colliders you could fetch and loop through them instead of only checking the first one.
+			if (entity.getComponent<CircleCollider>().collidesWithAny(out collisionResult))
+			{
+				// log the CollisionResult. You may want to use it to add some particle effects or anything else relevant to your game.
+				//entity.transform.position += -collisionResult.minimumTranslationVector;
+				Vector2 bounceVector = collisionResult.minimumTranslationVector;
+
+				xSpeed -= bounceVector.X;
+				ySpeed -= bounceVector.Y;
+
+				collide.Play();
+
+				Debug.log("collision result: {0}", collisionResult);
 			}
 
 		}

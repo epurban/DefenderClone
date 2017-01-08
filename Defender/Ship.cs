@@ -10,11 +10,16 @@ namespace Defender
 		private float health;
 		private float speed;
 		private float xSpeed, ySpeed;
+		private float decayVal;
+		public int curSystemIndex;
 
 		public float rotationAngle { get; set; }
 
+		// for timers
+		public float elapsedTime;
+		public float timer100;
 
-		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h)
+		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay)
 		{
 			maxSpeed = maxS;
 			acceleration = Accel;
@@ -24,6 +29,7 @@ namespace Defender
 			turnSpeed = turnS;
 			width = w;
 			height = h;
+			decayVal = decay;
 		}
 
 		public float width
@@ -115,6 +121,12 @@ namespace Defender
 			ySpeed -= deceleration * (float)Math.Sin(rotationAngle);
 		}
 
+		public void ApplyDecay(float decay)
+		{
+			xSpeed *= decay;
+			ySpeed *= decay;
+		}
+
 		public void MoveEntity()
 		{
 			var moveVector = Vector2.Zero;
@@ -138,6 +150,21 @@ namespace Defender
 		{
 			// every time we update the ship, we want to move it and rotate it
 			MoveEntity();
+
+			// TIMER LOGIC
+			elapsedTime += Time.deltaTime;
+
+			// 100 ms Timer
+			if (elapsedTime >= timer100)
+			{
+				//if (state.IsKeyUp(Keys.Up) && state.IsKeyUp(Keys.W) && state.IsKeyUp(Keys.Down) && state.IsKeyUp(Keys.S))
+				//{
+					ApplyDecay(decayVal);
+				//}
+
+				timer100 = elapsedTime + 0.100f;
+			}
+
 		}
 
 	}

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Nez;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Defender
 {
@@ -10,7 +12,7 @@ namespace Defender
 		public solarSystem(int numberOfPlanets, List<planetType> planetTypes)
 		{
 			planets = new List<planet>(numberOfPlanets);
-			Random rand = new Random();
+			System.Random rand = new System.Random();
 			float randScale;
 
 			for (int i = 0; i < numberOfPlanets; i++)

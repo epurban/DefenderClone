@@ -18,8 +18,10 @@ namespace Defender
 
 		public Game1() : base(1920, 1080, false, true, "Blitzkrieg", "Content") { }
 
+		const int GUI_RENDER_LAYER = -1;
+		const int BACKGROUND_RENDER_LAYER = 1;
+		const int MAIN_RENDER_LAYER = 0;
 
-		List<Entity> Backgrounds;
 
 		protected override void Initialize()
 		{
@@ -27,48 +29,80 @@ namespace Defender
 
 			base.Initialize();
 
-			var spaceScene = Scene.createWithDefaultRenderer( Color.Black );
+			var spaceScene = new Scene();
+
+			// renderers for background, main scene, and UI
+			spaceScene.addRenderer(new RenderLayerRenderer(-1, MAIN_RENDER_LAYER));
+			spaceScene.addRenderer(new ScreenSpaceRenderer(-10, BACKGROUND_RENDER_LAYER));
 
 
 			// entities
 			var myPlayer = spaceScene.createEntity("myPlayer");
 			var backgroundTextures = spaceScene.createEntity("backgroundTextures");
+			var currentSystem = spaceScene.createEntity("currentSystem");
 
-			//Backgrounds.Add(spaceScene.createEntity("spaceNebulas"));
-			                //Backgrounds.Add(spaceScene.createEntity("spaceStars1"));
-			                //Backgrounds.Add(spaceScene.createEntity("spaceStars2"));
-			                                
+			// a list of all planet entities in the current system
+			var currentSystemPlanets = new List<Entity>();
 
 
 			// textures
-
 			var _textureShip = spaceScene.content.Load<Texture2D>("stallion");
 			var _textureNebulas = spaceScene.content.Load<Texture2D>("nebulas");
             var _textureStars60 = spaceScene.content.Load<Texture2D>("Parallax60");
 			var _textureStars100 = spaceScene.content.Load<Texture2D>("Parallax100");
+			var _textureEarthlike = spaceScene.content.Load<Texture2D>("earthlike");
+			var _textureVolcanic = spaceScene.content.Load<Texture2D>("volcanic");
 
-			// components
 
-			myPlayer.addComponent(new Sprite(_textureShip));
-			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54));
+			// COMPONENTS
+
+			var introGalaxy = new Galaxy(0.99f, 1);
+
+			var sprite = new Sprite(_textureShip);
+			sprite.renderLayer = MAIN_RENDER_LAYER;
+
+			myPlayer.addComponent( sprite );
+			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54, introGalaxy.decayVal()));
 			myPlayer.addComponent(new MovementInput());
+			myPlayer.addComponent<CircleCollider>();
+
+			// adds an entity to a list for every planet in the system we are in
+			for (int i = 0; i < introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).numberOfPlanets(); i++)
+			{
+				float x = introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).getPlanet(i).X;
+				float y = introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).getPlanet(i).Y;
+
+				var tempPlanet = spaceScene.createEntity("planet" + i, new Vector2(x, y));
+				                                                     
+				tempPlanet.addComponent(new Sprite(_textureEarthlike));
+
+				currentSystemPlanets.Add(tempPlanet);
+
+			}
+
 
 			spaceScene.camera.entity.addComponent(new FollowCamera(myPlayer));
 
-			backgroundTextures.addComponent(new SpaceBackgroundSprite(_textureStars100, new Vector2(5, 5), 2.5f));
-			backgroundTextures.addComponent(new SpaceBackgroundSprite(_textureNebulas, new Vector2(1, 1), 5f));
-			backgroundTextures.addComponent(new SpaceBackgroundSprite(_textureStars60, new Vector2(15, 15), 3f));
+
+			var backgroundStars1 = new SpaceBackgroundSprite(_textureStars100, new Vector2(5, 5), 2.5f);
+			var backgroundStars2 = new SpaceBackgroundSprite(_textureStars60, new Vector2(15, 15), 3f);
+			var backgroundNebulas = new SpaceBackgroundSprite(_textureNebulas, new Vector2(1, 1), 5f);
+
+			backgroundStars1.renderLayer = BACKGROUND_RENDER_LAYER;
+			backgroundStars2.renderLayer = BACKGROUND_RENDER_LAYER;
+			backgroundNebulas.renderLayer = BACKGROUND_RENDER_LAYER;
+
+			backgroundTextures.addComponent( backgroundStars1 );
+			backgroundTextures.addComponent( backgroundNebulas );
+			backgroundTextures.addComponent( backgroundStars2 );
+
 
 			// transform
-
-			myPlayer.transform.position = new Vector2(100, 400);
+			myPlayer.transform.position = new Vector2(0, 0);
 			myPlayer.transform.scale = new Vector2(0.15f);
-			//spaceScene.camera.transform.position = myPlayer.transform.position;
-
 
 			Core.scene = spaceScene;
 
-			//introGalaxy = new Galaxy(0.99f, 1);
 			//planetTextures = new List<Texture2D>(2);
 
 			//Camera camera = new Camera(GraphicsDevice.Viewport);

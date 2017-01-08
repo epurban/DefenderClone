@@ -16,7 +16,7 @@ namespace Nez
 			Array.Sort( renderLayers );
 			Array.Reverse( renderLayers );
 			this.renderLayers = renderLayers;
-			wantsToRenderAfterPostProcessors = true;
+			wantsToRenderAfterPostProcessors = false;
 		}
 
 

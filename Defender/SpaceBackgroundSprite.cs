@@ -18,7 +18,7 @@ namespace Defender
 
 		public SpaceBackgroundSprite(Texture2D texture, Vector2 speed, float zoom) : this( new Subtexture( texture ) )
 		{ 
-			material.samplerState = SamplerState.LinearWrap;
+			//material.samplerState = SamplerState.LinearWrap;
 			Offset = Vector2.Zero;
 			Speed = speed;
 			Zoom = zoom;
@@ -46,6 +46,7 @@ namespace Defender
 
 		public override void render(Graphics graphics, Camera camera)
 		{
+			//material.samplerState = SamplerState.LinearWrap;
 			graphics.batcher.draw(subtexture, new Vector2(viewport.X, viewport.Y), Rectangle, Color.White, 0, Vector2.Zero, Zoom, SpriteEffects.None, 1);
 		}
 

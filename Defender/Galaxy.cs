@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Nez;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Defender
 {
@@ -16,12 +18,12 @@ namespace Defender
 
 			for (int i = 0; i < numberOfSystems; i++)
 			{
-				List<planetType> planetTypes = new List<planetType>(3);
-				planetTypes.Add(planetType.earth);
-				planetTypes.Add(planetType.volcanic);
-				planetTypes.Add(planetType.earth);
+				var systemPlanets = new List<planetType>(3);
+				systemPlanets.Add(planetType.earth);
+				systemPlanets.Add(planetType.volcanic);
+				systemPlanets.Add(planetType.earth);
 
-				systems.Add(new solarSystem(3, planetTypes));
+				systems.Add(new solarSystem(3, systemPlanets));
 			}
 		}
 

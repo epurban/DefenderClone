@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Default.spritefont</SourceFile>
-  <SourceTime>2016-12-24T17:57:37-05:00</SourceTime>
+  <SourceTime>2017-01-07T02:29:59-05:00</SourceTime>
   <DestFile>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/bin/DesktopGL/Default.xnb</DestFile>
-  <DestTime>2016-12-24T18:00:24-05:00</DestTime>
+  <DestTime>2017-01-07T02:32:53-05:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2016-03-30T02:36:22-04:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

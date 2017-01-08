@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Nez;
+using Nez.Sprites;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -49,5 +51,6 @@ namespace Defender
 			spriteBatch.Draw(texture, Position, tintColor);
 							 
 		}
+
 	}
 }

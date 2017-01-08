@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{57FAC9DA-B299-4909-A96C-2B99C8FF305F}|Default">
   <MonoDevelop.Ide.ItemProperties.Defender PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Defender/Ship.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Defender/Game1.cs">
     <Files>
-      <File FileName="Defender/Game1.cs" Line="51" Column="4" />
-      <File FileName="Defender/oldGame1code.cs" Line="71" Column="22" />
+      <File FileName="Defender/Game1.cs" Line="95" Column="56" />
+      <File FileName="Defender/oldGame1code.cs" Line="17" Column="3" />
       <File FileName="Defender/Background.cs" Line="11" Column="43" />
       <File FileName="Nez-master/Nez.Portable/ECS/Components/Renderables/Sprites/ScrollingSprite.cs" Line="11" Column="38" />
-      <File FileName="Defender/SpaceBackgroundSprite.cs" Line="49" Column="1" />
-      <File FileName="Nez-master/Nez.Portable/ECS/Entity.cs" Line="26" Column="26" />
-      <File FileName="Nez-master/Nez.Portable/ECS/Transform.cs" Line="301" Column="24" />
-      <File FileName="Defender/Ship.cs" Line="127" Column="4" />
-      <File FileName="Defender/MovementInput.cs" Line="16" Column="3" />
-      <File FileName="Defender/Player.cs" Line="93" Column="26" />
+      <File FileName="Defender/Ship.cs" Line="10" Column="24" />
+      <File FileName="Defender/Galaxy.cs" Line="21" Column="49" />
+      <File FileName="Defender/planetTypes.cs" Line="1" Column="1" />
+      <File FileName="Defender/solarSystem.cs" Line="23" Column="5" />
+      <File FileName="Defender/planet.cs" Line="23" Column="4" />
+      <File FileName="Defender/SpaceBackgroundSprite.cs" Line="2" Column="11" />
+      <File FileName="Defender/Player.cs" Line="14" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Eddie/Desktop/Programming/DefenderClone/Defender/SpaceBackgroundSprite.cs" line="57" column="1" />
+      <Breakpoint file="/Users/Eddie/Desktop/Programming/DefenderClone/Defender/SpaceBackgroundSprite.cs" line="58" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -31,3 +31,8 @@
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/MonoGame.Framework.dll
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Nez.dll
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Nez.dll.mdb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/OpenTK.dll
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/NVorbis.dll
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/water.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/nebulas2.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/sun_red.xnb

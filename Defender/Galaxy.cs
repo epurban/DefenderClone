@@ -21,9 +21,9 @@ namespace Defender
 				var systemPlanets = new List<planetType>(3);
 				systemPlanets.Add(planetType.earth);
 				systemPlanets.Add(planetType.volcanic);
-				systemPlanets.Add(planetType.earth);
+				systemPlanets.Add(planetType.oceanic);
 
-				systems.Add(new solarSystem(3, systemPlanets));
+				systems.Add(new solarSystem(systemPlanets.Count, systemPlanets));
 			}
 		}
 

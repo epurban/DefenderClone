@@ -46,10 +46,11 @@
     <Compile Include="Galaxy.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="planet.cs" />
-    <Compile Include="planetTypes.cs" />
+    <Compile Include="enumerations.cs" />
     <Compile Include="solarSystem.cs" />
     <Compile Include="SpaceBackgroundSprite.cs" />
     <Compile Include="MovementInput.cs" />
+    <Compile Include="star.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

@@ -20,9 +20,8 @@ namespace Defender
 		public float elapsedTime;
 		public float timer100;
 
-		SoundEffect collide;
 
-		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay, SoundEffect collideEffect)
+		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay)
 		{
 			maxSpeed = maxS;
 			acceleration = Accel;
@@ -33,7 +32,6 @@ namespace Defender
 			width = w;
 			height = h;
 			decayVal = decay;
-			collide = collideEffect;
 		}
 
 		public float width
@@ -181,8 +179,6 @@ namespace Defender
 
 				xSpeed -= bounceVector.X;
 				ySpeed -= bounceVector.Y;
-
-				collide.Play();
 
 				Debug.log("collision result: {0}", collisionResult);
 			}

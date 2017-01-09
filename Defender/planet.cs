@@ -40,17 +40,11 @@ namespace Defender
 			return type;
 		}
 
-
-		public void Draw(SpriteBatch spriteBatch, Texture2D texture)
+		public float getScale()
 		{
-			Vector2 Position = new Vector2(X, Y);
-			Color tintColor = Color.White;
-
-
-			// determine the current animation rectangle
-			spriteBatch.Draw(texture, Position, tintColor);
-							 
+			return scale;
 		}
+
 
 	}
 }

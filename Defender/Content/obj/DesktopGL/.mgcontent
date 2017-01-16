@@ -4,16 +4,21 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Parallax60.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Parallax100.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/nebulas.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Default.spritefont</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/earthlike.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/volcanic.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/stallion.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/collision.wav</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/water.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/fireparticle.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/sun_red.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/capture_humanoid.wav</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/def_star.wav</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/def_swar.wav</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/shipsheet.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Parallax60.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Parallax80.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Parallax100.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/nebulas.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Default.spritefont</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/earthlike.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/volcanic.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/stallion.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/collision.wav</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/water.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/nebulas2.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/sun_red.png</File>
   </SourceFiles>
 </SourceFileCollection>

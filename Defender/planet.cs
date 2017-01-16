@@ -11,6 +11,7 @@ namespace Defender
 	public class planet
 	{
 		private planetType type;
+		private static Texture2D planetSprite;
 		private float scale;
 
 		public planet(planetType planetNum, float Scale, float pX, float pY)

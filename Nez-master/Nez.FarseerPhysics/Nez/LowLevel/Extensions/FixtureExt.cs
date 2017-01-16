@@ -44,7 +44,6 @@ namespace Nez.Farseer
 					{
 						// if we have a collision, adjust the transform to account for it
 						xf.p += result.minimumTranslationVector;
-                        didCollide = true;
 					}
 				}
 			}

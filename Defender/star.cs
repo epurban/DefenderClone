@@ -12,7 +12,6 @@ namespace Defender
 	{
 
 		private starType type;
-		private static Texture2D planetSprite;
 		private float scale;
 
 		public star(starType planetNum, float Scale, float pX, float pY)

@@ -3,6 +3,9 @@ using Nez;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
+using Nez.Farseer;
+using FarseerPhysics.Dynamics;
+using FarseerPhysics;
 
 namespace Defender
 {
@@ -12,16 +15,22 @@ namespace Defender
 		private float speed;
 		private float xSpeed, ySpeed;
 		private float decayVal;
-		public int curSystemIndex;
+        private float fireSpeed;
+
+        private bool canFire;
+        private laser[] bullets;
+
+        public int curSystemIndex; // player's system
 
 		public float rotationAngle { get; set; }
 
 		// for timers
 		public float elapsedTime;
 		public float timer100;
+        public float timerCanFire;
 
 
-		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay)
+		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay, float fs)
 		{
 			maxSpeed = maxS;
 			acceleration = Accel;
@@ -32,6 +41,8 @@ namespace Defender
 			width = w;
 			height = h;
 			decayVal = decay;
+            fireSpeed = fs;
+            bullets = new laser[25];
 		}
 
 		public float width
@@ -123,6 +134,17 @@ namespace Defender
 			ySpeed -= deceleration * (float)Math.Sin(rotationAngle);
 		}
 
+        public void FirePrimary()
+        {
+            if (canFire)
+            {
+                bullets[1].rotationAngle = 5;
+                timerCanFire = Time.deltaTime + fireSpeed; // let player fire again after the fire timer is up
+                canFire = false;
+      
+            }
+        }
+
 		public void ApplyDecay(float decay)
 		{
 			xSpeed *= decay;
@@ -167,22 +189,50 @@ namespace Defender
 				timer100 = elapsedTime + 0.100f;
 			}
 
-			CollisionResult collisionResult;
+            // allow the player to fire again after the fire timer is up
+            if (canFire == false)
+            {
+                if (elapsedTime >= timerCanFire)
+                {
+                    canFire = true;
+                }
+            }
 
-			// do a check to see if entity.getComponent<Collider> (the first Collider on the Entity) collides with any other Colliders in the Scene
-			// Note that if you have multiple Colliders you could fetch and loop through them instead of only checking the first one.
-			if (entity.getComponent<CircleCollider>().collidesWithAny(out collisionResult))
-			{
-				// log the CollisionResult. You may want to use it to add some particle effects or anything else relevant to your game.
-				//entity.transform.position += -collisionResult.minimumTranslationVector;
-				Vector2 bounceVector = collisionResult.minimumTranslationVector;
+            //CollisionResult collisionResult;
+            FSCollisionResult collisionResult;
 
-				xSpeed -= bounceVector.X;
-				ySpeed -= bounceVector.Y;
+            var rigidBody = entity.getComponent<FSRigidBody>();
 
-				Debug.log("collision result: {0}", collisionResult);
-			}
+            var fixtures = rigidBody.body.fixtureList;
+            var speedVector = new Vector2(speed);
 
+            foreach (var fixture in fixtures)
+            {
+                if (FixtureExt.collidesWithAnyFixtures(fixture, ref speedVector, out collisionResult))
+                {
+                    Vector2 bounceVector = collisionResult.minimumTranslationVector;
+
+                    xSpeed += bounceVector.X * 25 * fixture.restitution;
+                    ySpeed += bounceVector.Y * 25 * fixture.restitution;
+
+                    Debug.log("collision result: {0}", collisionResult);
+                }
+            }
+
+            // do a check to see if entity.getComponent<Collider> (the first Collider on the Entity) collides with any other Colliders in the Scene
+            // Note that if you have multiple Colliders you could fetch and loop through them instead of only checking the first one.
+            //if (entity.getComponent<CircleCollider>().collidesWithAny(out collisionResult))
+            //{
+            // log the CollisionResult. You may want to use it to add some particle effects or anything else relevant to your game.
+            //Vector2 bounceVector = collisionResult.minimumTranslationVector;
+
+            //xSpeed -= bounceVector.X;
+            //ySpeed -= bounceVector.Y;
+
+            //Debug.log("collision result: {0}", collisionResult);
+            //}
+          
+           
 		}
 
 	}

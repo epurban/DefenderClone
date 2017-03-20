@@ -13,12 +13,20 @@ namespace Defender
 		private planetType type;
 		private float scale;
 
+		// for gravity
+		public float gravityRange;
+		public float mass;
+
 		public planet(planetType planetNum, float Scale, float pX, float pY)
 		{
 			type = planetNum;
-			scale = Scale;
 			X = pX;
 			Y = pY;
+
+			// gravity
+			scale = Scale;
+			mass = scale * 50;
+			gravityRange = scale * 750;
 
 		}
 

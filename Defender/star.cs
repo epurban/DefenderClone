@@ -14,12 +14,20 @@ namespace Defender
 		private starType type;
 		private float scale;
 
+		// for gravity
+		public float gravityRange;
+		public float mass;
+
 		public star(starType planetNum, float Scale, float pX, float pY)
 		{
 			type = planetNum;
-			scale = Scale;
 			X = pX;
 			Y = pY;
+
+			// gravity
+			scale = Scale;
+			mass = scale * 100;
+			gravityRange = scale * 1000;
 
 		}
 

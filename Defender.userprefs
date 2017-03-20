@@ -1,29 +1,28 @@
 ﻿<Properties StartupConfiguration="{57FAC9DA-B299-4909-A96C-2B99C8FF305F}|Default">
   <MonoDevelop.Ide.ItemProperties.Defender PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Defender/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Defender/GravityConstants.cs">
     <Files>
-      <File FileName="Defender/Game1.cs" Line="53" Column="69" />
-      <File FileName="Defender/oldGame1code.cs" Line="21" Column="22" />
-      <File FileName="Defender/Background.cs" Line="11" Column="43" />
-      <File FileName="Nez-master/Nez.Portable/ECS/Components/Renderables/Sprites/ScrollingSprite.cs" Line="11" Column="38" />
-      <File FileName="Defender/Ship.cs" Line="181" Column="30" />
-      <File FileName="Defender/Galaxy.cs" Line="8" Column="21" />
-      <File FileName="Defender/solarSystem.cs" Line="16" Column="20" />
-      <File FileName="Defender/planet.cs" Line="6" Column="1" />
-      <File FileName="Defender/Player.cs" Line="14" Column="3" />
+      <File FileName="Defender/Game1.cs" Line="99" Column="82" />
+      <File FileName="Defender/Ship.cs" Line="235" Column="4" />
+      <File FileName="Defender/Galaxy.cs" Line="14" Column="44" />
+      <File FileName="Defender/solarSystem.cs" Line="33" Column="37" />
       <File FileName="Nez-master/Nez.Portable/ECS/Components/FollowCamera.cs" Line="195" Column="1" />
-      <File FileName="Nez-master/Nez.Portable/Core.cs" Line="129" Column="1" />
-      <File FileName="Defender/planetTypes.cs" Line="8" Column="14" />
-      <File FileName="Nez-master/Nez.Portable/ECS/Components/Physics/Colliders/CircleCollider.cs" Line="7" Column="38" />
-      <File FileName="Nez-master/Nez.Portable/ECS/Components/Physics/Colliders/Collider.cs" Line="20" Column="4" />
-      <File FileName="Defender/star.cs" Line="13" Column="16" />
+      <File FileName="Defender/star.cs" Line="13" Column="1" />
+      <File FileName="Defender/ParticleSystemSelector.cs" Line="76" Column="4" />
+      <File FileName="Defender/MovementInput.cs" Line="36" Column="21" />
+      <File FileName="Nez-master/Nez.Portable/ECS/Components/Renderables/Particles/ParticleEmitter.cs" Line="103" Column="52" />
+      <File FileName="Nez-master/Nez.Portable/ECS/Components/Renderables/Particles/ParticleEmitterConfig.cs" Line="9" Column="36" />
+      <File FileName="Defender/planet.cs" Line="12" Column="3" />
+      <File FileName="Defender/GravityConstants.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Eddie/Desktop/Programming/DefenderClone/Defender/SpaceBackgroundSprite.cs" line="58" column="1" />
+      <Breakpoint file="/Users/Eddie/Desktop/Programming/DefenderClone/Defender/SpaceBackgroundSprite.cs" relfile="Defender/SpaceBackgroundSprite.cs" line="58" column="1" />
+      <Breakpoint file="/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Player.cs" relfile="Defender/Player.cs" line="150" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

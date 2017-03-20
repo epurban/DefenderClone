@@ -36,3 +36,11 @@
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/water.xnb
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/nebulas2.xnb
 /Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/sun_red.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/fireparticle.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Nez.FarseerPhysics.dll
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Nez.FarseerPhysics.dll.mdb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/Particles/Fire.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/Particles/Blue Flame.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/Particles/Electrons.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Content/Particles/Trippy.xnb
+/Users/Eddie/Desktop/Programming/DefenderClone/Defender/bin/Debug/Nez.pdb

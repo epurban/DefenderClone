@@ -3,13 +3,17 @@
 
 /outputDir:bin/$(Platform)
 /intermediateDir:obj/$(Platform)
-/platform:Windows
+/platform:DesktopGL
 /config:
-/profile:Reach
+/profile:HiDef
 /compress:False
 
 #-------------------------------- References --------------------------------#
 
+/reference:../../Nez-master/Nez.PipelineImporter/bin/Debug/Ionic.ZLib.dll
+/reference:../../Nez-master/Nez.PipelineImporter/bin/Debug/Newtonsoft.Json.dll
+/reference:../../Nez-master/Nez.PipelineImporter/bin/Debug/Nez.PipelineImporter.dll
+/reference:../../Nez-master/Nez.PipelineImporter/bin/Debug/Nez.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -132,4 +136,24 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sun_red.png
+
+#begin Particles/Fire.pex
+/importer:ParticleDesignerImporter
+/processor:ParticleDesignerProcessor
+/build:Particles/Fire.pex
+
+#begin Particles/Blue Flame.pex
+/importer:ParticleDesignerImporter
+/processor:ParticleDesignerProcessor
+/build:Particles/Blue Flame.pex
+
+#begin Particles/Electrons.pex
+/importer:ParticleDesignerImporter
+/processor:ParticleDesignerProcessor
+/build:Particles/Electrons.pex
+
+#begin Particles/Trippy.pex
+/importer:ParticleDesignerImporter
+/processor:ParticleDesignerProcessor
+/build:Particles/Trippy.pex
 

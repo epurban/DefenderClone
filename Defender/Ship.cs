@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Audio;
 using Nez.Farseer;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics;
+using Nez.Particles;
 
 namespace Defender
 {
@@ -20,17 +21,22 @@ namespace Defender
         private bool canFire;
         private laser[] bullets;
 
-        public int curSystemIndex; // player's system
+		public int curSystemIndex; // index of the players system
+        private solarSystem curSystem; // reference to player's solar system obj
 
 		public float rotationAngle { get; set; }
 
 		// for timers
 		public float elapsedTime;
+		public float timer10;
 		public float timer100;
         public float timerCanFire;
 
+		// for gravity
+		public float mass;
 
-		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay, float fs)
+
+		public Ship(float maxS, float maxH, float Accel, float Decel, float turnS, float w, float h, float decay, float fs, solarSystem curSys)
 		{
 			maxSpeed = maxS;
 			acceleration = Accel;
@@ -42,7 +48,15 @@ namespace Defender
 			height = h;
 			decayVal = decay;
             fireSpeed = fs;
-            bullets = new laser[25];
+			bullets = new laser[25];
+			CurSystem = curSys;
+			mass = 10;
+		}
+
+		public solarSystem CurSystem
+		{
+			get { return curSystem; }
+			set { curSystem = value; }
 		}
 
 		public float width
@@ -126,6 +140,7 @@ namespace Defender
 		{
 			xSpeed += acceleration * (float)Math.Cos(rotationAngle);
 			ySpeed += acceleration * (float)Math.Sin(rotationAngle);
+
 		}
 
 		public void ReverseThrust()
@@ -189,6 +204,58 @@ namespace Defender
 				timer100 = elapsedTime + 0.100f;
 			}
 
+			// 10 ms Timer
+			if (elapsedTime >= timer10)
+			{
+
+				// GRAVITY FROM PLANETS AND SUN
+				for (int i = 0; i<curSystem.numberOfPlanets(); i++)
+				{
+					var p = curSystem.getPlanet(i);
+
+					var pVector = new Vector2(p.X, p.Y);
+
+					UniversalGravitation.distance = Vector2.Distance(pVector, entity.position);
+
+					if (UniversalGravitation.distance <= p.gravityRange) // we give it a pretend gravity range based on size of planet
+					{
+						UniversalGravitation.force = (UniversalGravitation.gravitationalConstant* mass * p.mass) / (UniversalGravitation.distance* 10);
+						UniversalGravitation.direction = entity.position - pVector;
+						UniversalGravitation.direction.Normalize();
+						var velocityChangeVector = UniversalGravitation.direction * UniversalGravitation.force;
+
+						xSpeed -= velocityChangeVector.X;
+						ySpeed -= velocityChangeVector.Y;
+
+						Debug.log($"gravity applied:{velocityChangeVector.X},{velocityChangeVector.Y}");
+
+					}
+
+				}
+
+				var s = curSystem.getStar();
+
+				var sVector = new Vector2(s.X, s.Y);
+
+				UniversalGravitation.distance = Vector2.Distance(sVector, entity.position);
+
+				if (UniversalGravitation.distance <= s.gravityRange) // we give it a pretend gravity range based on size of planet
+				{
+					UniversalGravitation.force = (UniversalGravitation.gravitationalConstant* mass * s.mass) / (UniversalGravitation.distance* 10);
+					UniversalGravitation.direction = entity.position - sVector;
+					UniversalGravitation.direction.Normalize();
+					var velocityChangeVector = UniversalGravitation.direction * UniversalGravitation.force;
+
+					xSpeed -= velocityChangeVector.X;
+					ySpeed -= velocityChangeVector.Y;
+
+					Debug.log($"gravity from STAR applied:{velocityChangeVector.X},{velocityChangeVector.Y}");
+
+				}
+
+				timer10 = elapsedTime + 0.010f;
+			}
+
             // allow the player to fire again after the fire timer is up
             if (canFire == false)
             {
@@ -198,6 +265,10 @@ namespace Defender
                 }
             }
 
+			/*
+			 ****** COLLISIONS *****
+			 */
+
             //CollisionResult collisionResult;
             FSCollisionResult collisionResult;
 
@@ -206,18 +277,19 @@ namespace Defender
             var fixtures = rigidBody.body.fixtureList;
             var speedVector = new Vector2(speed);
 
-            foreach (var fixture in fixtures)
-            {
-                if (FixtureExt.collidesWithAnyFixtures(fixture, ref speedVector, out collisionResult))
-                {
-                    Vector2 bounceVector = collisionResult.minimumTranslationVector;
+			foreach (var fixture in fixtures)
+			{
+				if (FixtureExt.collidesWithAnyFixtures(fixture, ref speedVector, out collisionResult))
+				{
+					Vector2 bounceVector = collisionResult.minimumTranslationVector;
 
-                    xSpeed += bounceVector.X * 25 * fixture.restitution;
-                    ySpeed += bounceVector.Y * 25 * fixture.restitution;
+					xSpeed += bounceVector.X * 5 * fixture.restitution;
+					ySpeed += bounceVector.Y * 5 * fixture.restitution;
 
-                    Debug.log("collision result: {0}", collisionResult);
-                }
-            }
+					Debug.log("collision result: {0}", collisionResult);
+				}
+			}
+				
 
             // do a check to see if entity.getComponent<Collider> (the first Collider on the Entity) collides with any other Colliders in the Scene
             // Note that if you have multiple Colliders you could fetch and loop through them instead of only checking the first one.

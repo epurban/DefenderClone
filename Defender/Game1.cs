@@ -38,7 +38,9 @@ namespace Defender
 			var spaceScene = new Scene();
 
             var world = spaceScene.getOrCreateSceneComponent<FSWorld>();
-            var introGalaxy = new Galaxy(0.99f, 1);
+
+            var introGalaxy = new Galaxy(0.99f, 1); // create a new galaxy, with 0.99 decay and 1 solar system
+
 
 
             // renderers for background, main scene, and UI
@@ -56,6 +58,10 @@ namespace Defender
             */
 			var myPlayer = spaceScene.createEntity("myPlayer");
 			var backgroundTextures = spaceScene.createEntity("backgroundTextures");
+
+			// add the ParticleSystemSelector which handles input for the scene and a SimpleMover to move it around with the keyboard
+			//var particlesEntity = spaceScene.createEntity("particles");
+			//particlesEntity.addComponent(new ParticleSystemSelector());
 
             // Farseer Debug rendering
             var FSDebug = spaceScene.createEntity("FSDebug");
@@ -98,7 +104,8 @@ namespace Defender
 
             myPlayer.addComponent<FSCollisionCircle>(FSmyPlayerCollider);
             myPlayer.addComponent( sprite );
-			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54, introGalaxy.decayVal(), 1));
+			myPlayer.addComponent(new ParticleSystemSelector());
+			myPlayer.addComponent(new Ship(25, 5000, 0.25f, 0.25f, 5, 74, 54, introGalaxy.decayVal(), 1, introGalaxy.getSystem(0)));
 			myPlayer.addComponent(new MovementInput());
 
 
@@ -111,7 +118,7 @@ namespace Defender
             Texture2D textureStar;
 
 			// determine which star type it is
-			switch (introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).getStar().getType())
+            switch (introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).getStar().getType())
 			{
 				case starType.red:
 					textureStar = _textureSunRed;
@@ -127,7 +134,7 @@ namespace Defender
 					break;
 			}
 
-			tempStar.addComponent(new Sprite(_textureSunRed));
+			tempStar.addComponent(new Sprite(textureStar));
 			var tempSprite = tempStar.getComponent<Sprite>();
 			tempSprite.transform.scale = new Vector2(introGalaxy.getSystem(myPlayer.getComponent<Ship>().curSystemIndex).getStar().getScale());
             tempSprite.setLayerDepth(1f);
@@ -207,6 +214,7 @@ namespace Defender
 			// transform
 			myPlayer.transform.position = new Vector2(500, 0);
             myPlayer.transform.scale = new Vector2(0.8f);
+			//particlesEntity.setPosition(new Vector2(myPlayer.position.X, myPlayer.position.Y);
 
 			Core.scene = spaceScene;
 

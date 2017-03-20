@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/nebulas.png</SourceFile>
-  <SourceTime>2017-01-10T01:55:23.4551276-05:00</SourceTime>
-  <DestFile>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/bin/DesktopGL/nebulas.xnb</DestFile>
-  <DestTime>2017-01-10T02:47:11.7019835-05:00</DestTime>
+  <SourceFile>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/nebulas.png</SourceFile>
+  <SourceTime>2017-01-07T02:29:59-05:00</SourceTime>
+  <DestFile>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/bin/DesktopGL/nebulas.xnb</DestFile>
+  <DestTime>2017-01-16T14:00:51-05:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-03-30T02:36:08-04:00</ImporterTime>
+  <ImporterTime>2016-03-30T02:36:22-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-03-30T02:36:08-04:00</ProcessorTime>
+  <ProcessorTime>2016-03-30T02:36:22-04:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

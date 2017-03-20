@@ -42,7 +42,7 @@ namespace Nez.Particles
 		/// if the emitter is emitting this will be true. Note that emitting can be false while particles are still alive. emitting gets set
 		/// to false and then any live particles are allowed to finish their lifecycle.
 		/// </summary>
-		bool _emitting;
+		public bool _emitting;
 		List<Particle> _particles;
 		bool _playOnAwake;
 		ParticleEmitterConfig _emitterConfig;

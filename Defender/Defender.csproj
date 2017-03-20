@@ -75,6 +75,8 @@
     <Compile Include="SpaceBackgroundSprite.cs" />
     <Compile Include="MovementInput.cs" />
     <Compile Include="star.cs" />
+    <Compile Include="ParticleSystemSelector.cs" />
+    <Compile Include="UniversalGravitation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

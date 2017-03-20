@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Profile>Reach</Profile>
+  <Profile>HiDef</Profile>
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Parallax60.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Parallax100.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/nebulas.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/Default.spritefont</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/earthlike.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/volcanic.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/stallion.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/collision.wav</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/water.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/fireparticle.png</File>
-    <File>C:/Users/Eddie/Desktop/Monogame-Space-Shooter/Defender/Content/sun_red.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Parallax60.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Parallax100.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/nebulas.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Default.spritefont</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/earthlike.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/volcanic.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/stallion.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/collision.wav</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/water.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/fireparticle.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/sun_red.png</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Particles/Fire.pex</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Particles/Blue Flame.pex</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Particles/Electrons.pex</File>
+    <File>/Users/Eddie/Desktop/Programming/DefenderClone/Defender/Content/Particles/Trippy.pex</File>
   </SourceFiles>
 </SourceFileCollection>
